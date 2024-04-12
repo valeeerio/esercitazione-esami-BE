@@ -1,35 +1,14 @@
-package com.esercitazione17.demo.entity;
+package com.esercitazione17.demo.dto;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Table(name = "tabella_utenti")
-@Entity
-
-public class Utente {
-
-    @Id
+public class UtenteDto {
     private Integer id;
-    @Column(name = "nome")
     private String nome;
-    @Column(name = "cognome")
     private String cognome;
-    @Column(name = "email")
     private String email;
-    @Column(name = "password")
     private String password;
-
-    public Utente(Integer id, String nome, String cognome, String email, String password) {
-        this.id = id;
-        this.nome = nome;
-        this.cognome = cognome;
-        this.email = email;
-        this.password = password;
-    }
-
-    public Utente(){}
 
     public Integer getId() {
         return id;
@@ -70,6 +49,4 @@ public class Utente {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 }
