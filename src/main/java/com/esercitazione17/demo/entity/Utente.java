@@ -1,9 +1,6 @@
 package com.esercitazione17.demo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Table(name = "tabella_utenti")
 @Entity
@@ -11,6 +8,7 @@ import jakarta.persistence.Table;
 public class Utente {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name = "nome")
     private String nome;
