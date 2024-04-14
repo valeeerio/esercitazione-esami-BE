@@ -25,4 +25,15 @@ public class UtenteServiceImpl implements UtenteService{
         return "Utente Registrato";
 
     }
+
+    @Override
+    public boolean esisteUtente(String email, String nome){
+        return utentiRepository.esistePerEmail(email) || utentiRepository.esistePerNome(nome);
+    }
+
+    @Override
+    public boolean autenticaUtente(String email, String password){
+        Utente utente = utentiRepository.trovaPerEmail(email);
+        return utente != null && password.matches(password);
+    }
 }
