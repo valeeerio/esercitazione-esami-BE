@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface UtenteService {
     String aggiungiUtente(UtenteDto utenteDto);
-    boolean esisteUtente(String email, String nome);
+
+    boolean esisteUtente(String email);
+
     boolean autenticaUtente(String email, String password);
 }

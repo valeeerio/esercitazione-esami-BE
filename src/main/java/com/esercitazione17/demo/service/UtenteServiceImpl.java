@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 public class UtenteServiceImpl implements UtenteService{
     @Autowired
     private UtentiRepository utentiRepository;
+    public UtenteServiceImpl(UtentiRepository utentiRepository){
+        this.utentiRepository = utentiRepository;
+    }
 
     @Override
     public String aggiungiUtente(UtenteDto utenteDto){
@@ -27,13 +30,14 @@ public class UtenteServiceImpl implements UtenteService{
     }
 
     @Override
-    public boolean esisteUtente(String email, String nome){
-        return utentiRepository.esistePerEmail(email) || utentiRepository.esistePerNome(nome);
+    public boolean esisteUtente(String email){
+        return utentiRepository.esistePerEmail(email);
     }
 
     @Override
     public boolean autenticaUtente(String email, String password){
         Utente utente = utentiRepository.trovaPerEmail(email);
-        return utente != null && password.matches(password);
+        return utente != null && utente.getPassword().equals(password);
     }
+
 }
