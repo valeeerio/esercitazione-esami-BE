@@ -31,12 +31,12 @@ public class UtenteServiceImpl implements UtenteService{
 
     @Override
     public boolean esisteUtente(String email){
-        return utentiRepository.esistePerEmail(email);
+        return utentiRepository.existsByEmail(email);
     }
 
     @Override
     public boolean autenticaUtente(String email, String password){
-        Utente utente = utentiRepository.trovaPerEmail(email);
+        Utente utente = utentiRepository.findByEmail(email);
         return utente != null && utente.getPassword().equals(password);
     }
 

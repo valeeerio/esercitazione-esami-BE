@@ -4,7 +4,7 @@ import com.esercitazione17.demo.entity.Utente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UtentiRepository extends JpaRepository<Utente, Integer > {
-    boolean esistePerEmail(String email);
+    boolean existsByEmail(String email);
 
-    Utente trovaPerEmail(String email);
+    Utente findByEmail(String email);
 }
